@@ -1,0 +1,77 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.gamecontainer{
+  display: grid;
+  place-items: center;
+  min-height: 70vh;
+}
+
+h1{
+  text-align: center;
+  font-family: 'VT323', monospace;
+  font-size: 50px;
+}
+
+p{
+  text-align: center;
+  font-size: 20px;
+  font-family: 'VT323', monospace;  
+  margin: 15px 0;
+}
+
+.click, .clickBoard{
+  text-align: center;
+  font-family: 'VT323', monospace;  
+  font-size: 20px;
+}
+
+.cards{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+
+.card {
+  height: 130px;
+  width: 130px;
+  background-image: url('imgs/wallpaper.jpeg');
+  border: 2px solid black;
+  border-radius: 15px;
+  display: grid;
+  margin: 5px;
+  place-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card img {
+  opacity: 0; 
+  display: grid;
+  place-items: center;
+  width: 140px;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.card.clicked img{
+  opacity: 1;
+}
+
+.card.correct img{
+  opacity: 1;
+}
+
+#restart-btn{
+  background-color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-family:'VT323', monospace;  
+  font-size: 20px;
+  padding: 3px 8px;
+}
