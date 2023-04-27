@@ -10,7 +10,7 @@ A classic game of memory with a retro video game flair. The goal of the game is 
 * JavaScript
 
 ### Preview
-Game start 
+Game start   
 <img src="/screenshots/home.png" alt="Memory Game main" width="auto" height="250px">  
   
 In play  
