@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded',function(){
   let lockBoard = false;
   let clickBoard = document.querySelector(".clickBoard");
   let clicks = 0;
+  let highscoreBoard = document.querySelector(".highscoreBoard");
+  let highscore = localStorage.getItem('highscore') || 0;
   const cards = document.querySelectorAll(".cards .card");
 
 
@@ -22,8 +24,10 @@ document.addEventListener('DOMContentLoaded',function(){
   
   function loadGame(){
   
+  highscoreBoard.innerHTML = highscore;
+
   for (let card of cards){
-   
+  
   card.addEventListener('click',function(){
     if(lockBoard) return;  
     card.classList.add('clicked');
@@ -59,11 +63,17 @@ document.addEventListener('DOMContentLoaded',function(){
           lockBoard = false;
         },1000);
       }
+      const gameFinished = checkGameFinished(cards);
+      if (gameFinished) {
+        setHighscore(highscore, clicks);
+        alert('Game over! Click restart to play again.')
+      } 
     }
     
    
-  })  
+    })  
   }
+
 }
   loadGame();
 
@@ -79,6 +89,19 @@ document.addEventListener('DOMContentLoaded',function(){
   })}
   resetGame();
   
+  function checkGameFinished(cards){
+    return Array.from(cards).every(card => card.classList.contains('correct'));
+  }
+
+  function setHighscore(highscore=0, clicks){
+    console.log('setHighscore:', highscore, 'clicks', clicks)
+    if(clicks<highscore || highscore === 0){
+      localStorage.setItem('highscore', clicks);
+      highscoreBoard.innerHTML = clicks;
+      alert('Congratulations on the new high score: ' + clicks);
+    }
+  }
+
 
   })
 

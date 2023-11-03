@@ -23,7 +23,7 @@ p{
   margin: 15px 0;
 }
 
-.click, .clickBoard{
+.click, .clickBoard, .highscore, .highscoreBoard {
   text-align: center;
   font-family: 'VT323', monospace;  
   font-size: 20px;
